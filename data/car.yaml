@@ -1,0 +1,10 @@
+# train and val datasets (image directory or *.txt file with image paths)
+train: data/train_car.txt
+val: data/val_car.txt
+test: data/test_car.txt
+
+# number of classes
+nc: 3
+
+# class names
+names: ['unknown', 'car', 'bike']

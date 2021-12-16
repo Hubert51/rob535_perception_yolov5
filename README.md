@@ -1,6 +1,6 @@
 ## This repository contains code for <a href="https://medium.com/@mihir_rajput/yolo-v5-is-here-custom-object-detection-tutorial-with-yolo-v5-12666ee1774e">this</a> tutorial.
 ```bash
-python train.py --img 640 --batch 6 --epochs 200 --data ./data/car.yaml --cfg ./models/yolov5s.yaml --weights '' --device 0
+python train.py --img 640 --batch 6 --epochs 500 --data ./data/car.yaml --cfg ./models/yolov5s.yaml --weights '' --device 0
 python detect.py --source test_img/  --weights trained_model/weights_car3/best.pt --conf 0.2
 ```
 ### Specific format of annotation
@@ -17,12 +17,16 @@ atention: `<x> <y>` - are center of rectangle (are not top-left corner)
 
 ## Output
 <p align="center">
-  <img width="700" height="500" src="output_elephant_img/output_.gif">
+  <img width="700" height="500" src="demo_image/train_batch1.jpg">
 </p>
 
-## Licence
-[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
+[//]: # (## Licence)
 
-## Credits
-https://ultralytics.com/ <br/>
-https://roboflow.ai/
+[//]: # ([![License: GPL v3]&#40;https://img.shields.io/badge/License-GPLv3-blue.svg&#41;]&#40;https://www.gnu.org/licenses/gpl-3.0&#41;)
+
+[//]: # ()
+[//]: # (## Credits)
+
+[//]: # (https://ultralytics.com/ <br/>)
+
+[//]: # (https://roboflow.ai/)

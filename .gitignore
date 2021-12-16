@@ -1,2 +1,4 @@
 /data/test/*
 /data/trainval/*
+/.idea/*
+/inference/*

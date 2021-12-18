@@ -1,7 +1,41 @@
-## This repository contains code for <a href="https://medium.com/@mihir_rajput/yolo-v5-is-here-custom-object-detection-tutorial-with-yolo-v5-12666ee1774e">this</a> tutorial.
+[//]: # (## This repository contains code for <a href="https://medium.com/@mihir_rajput/yolo-v5-is-here-custom-object-detection-tutorial-with-yolo-v5-12666ee1774e">this</a> tutorial.)
+## Environment Setup:
+1. Use Ubuntu18.04
+2. Recommend to use conda environment, which provides useful package and virtual 
+environment tools to help us setup the working environment
+3. Create a python virtual environment and install required package:
 ```bash
-python train.py --img 640 --batch 6 --epochs 500 --data ./data/car.yaml --cfg ./models/yolov5s.yaml --weights '' --device 0
-python detect.py --source test_img/  --weights trained_model/weights_car3/best.pt --conf 0.2
+conda create -n rob535 python=3.9
+conda activate rob535
+pip install -r requirements.txt
+```
+
+## Data preprocess
+1. Put `test` and `trainval` folders from data folder to this github repo data folder 
+2. run the following command line code to extract path and bounding box inforamtion from 
+data set.  
+```bash
+python3 utils/carDataset.py [path-to-data-folder]
+# for example, in my environment:
+python3 utils/carDataset.py /home/ruijie/Desktop/rob535_perception_yolov5/data
+```
+## the command used in training and testing step.
+1. training
+2. After get a good model from training. We will use detect.py to predict the test image.
+the weights parameter are stores in weights folder, we should use weights/best.pt.
+3. we also saved previous good models in `trained_model` folder
+```bash
+python3 train.py --img 640 --batch 6 --epochs 500 --data ./data/car.yaml --cfg ./models/yolov5s.yaml --weights '' --device 0
+# both of following are good
+python3 detect.py --source test_img/  --weights weights/best.pt --conf 0.5
+python3 detect.py --source test_img/  --weights /trained_model/weights_car7/best.pt --conf 0.5
+```
+
+## Command to generate output
+The script will create a file called submission in the root of this repo. It is enough to
+upload this file.
+```bash
+python auto_run_test.py
 ```
 ### Specific format of annotation
 * `<object-class>` - integer number of object from `0` to `(classes-1)`
